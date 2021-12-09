@@ -56,6 +56,20 @@ function dynamic_mapping_clash {
     echo ""
 }
 
+function dynamic_mapping_nonglobal {
+    echo "dynamic_mapping_nonglobal"
+    echo "========================="
+    echo "Using Androguard:"
+    liana --reachable --find-path-to libnative.so@target_fun ./DynamicMappingNonglobal.apk 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    liana --print-full-icfg-path --reachable --find-path-to libnative.so@target_fun ./DynamicMappingNonglobal.apk 2> /dev/null
+    echo ""
+    echo "Using FlowDroid:"
+    liana --use-flowdroid --reachable --find-path-to libnative.so@target_fun ./DynamicMappingNonglobal.apk 2> /dev/null
+    echo ""
+}
+
 function nested_lib {
     echo "nested_lib"
     echo "=========="
@@ -84,6 +98,34 @@ function indirect_jmp_variant {
     echo ""
 }
 
+function high_depth {
+    echo "high_depth"
+    echo "=========="
+    echo "Using Androguard:"
+    liana --reachable --find-path-to libnative.so@target_fun ./HighDepth.apk 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    liana --print-full-icfg-path --reachable --find-path-to libnative.so@target_fun ./HighDepth.apk 2> /dev/null
+    echo ""
+    echo "Using FlowDroid:"
+    liana --use-flowdroid --reachable --find-path-to libnative.so@target_fun ./HighDepth.apk 2> /dev/null
+    echo ""
+}
+
+function indirect_jmp_high_depth {
+    echo "indirect_jmp_high_depth"
+    echo "======================="
+    echo "Using Androguard:"
+    liana --reachable --find-path-to libnative.so@target_fun ./IndirectJmpHighDepth.apk 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    liana --print-full-icfg-path --reachable --find-path-to libnative.so@target_fun ./IndirectJmpHighDepth.apk 2> /dev/null
+    echo ""
+    echo "Using FlowDroid:"
+    liana --use-flowdroid --reachable --find-path-to libnative.so@target_fun ./IndirectJmpHighDepth.apk 2> /dev/null
+    echo ""
+}
+
 if [ "$1" != "" ]; then
     $1
     exit 0
@@ -93,5 +135,8 @@ static_mapping
 static_mapping_overload
 dynamic_mapping
 dynamic_mapping_clash
+dynamic_mapping_nonglobal
 nested_lib
 indirect_jmp_variant
+high_depth
+indirect_jmp_high_depth
