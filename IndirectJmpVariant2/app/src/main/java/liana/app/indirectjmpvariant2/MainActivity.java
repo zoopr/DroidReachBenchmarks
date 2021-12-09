@@ -1,4 +1,4 @@
-package liana.app.indirectjmphighdepth;
+package liana.app.indirectjmpvariant2;
 
 import androidx.appcompat.app.AppCompatActivity;
 

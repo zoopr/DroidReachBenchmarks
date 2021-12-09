@@ -84,6 +84,20 @@ function nested_lib {
     echo ""
 }
 
+function indirect_jmp {
+    echo "indirect_jmp"
+    echo "============"
+    echo "Using Androguard:"
+    liana --reachable --find-path-to libnative.so@target_fun ./IndirectJmp.apk 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    liana --print-full-icfg-path --reachable --find-path-to libnative.so@target_fun ./IndirectJmp.apk 2> /dev/null
+    echo ""
+    echo "Using FlowDroid:"
+    liana --use-flowdroid --reachable --find-path-to libnative.so@target_fun ./IndirectJmp.apk 2> /dev/null
+    echo ""
+}
+
 function indirect_jmp_variant {
     echo "indirect_jmp_variant"
     echo "===================="
@@ -95,6 +109,20 @@ function indirect_jmp_variant {
     echo ""
     echo "Using FlowDroid:"
     liana --angr-bb-iterations 2 --use-flowdroid --reachable --find-path-to libnative.so@target_fun ./IndirectJmpVariant.apk 2> /dev/null
+    echo ""
+}
+
+function indirect_jmp_variant2 {
+    echo "indirect_jmp_variant2"
+    echo "====================="
+    echo "Using Androguard:"
+    liana --reachable --find-path-to libnative.so@target_fun ./IndirectJmpVariant2.apk 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    liana --print-full-icfg-path --reachable --find-path-to libnative.so@target_fun ./IndirectJmpVariant2.apk 2> /dev/null
+    echo ""
+    echo "Using FlowDroid:"
+    liana --use-flowdroid --reachable --find-path-to libnative.so@target_fun ./IndirectJmpVariant2.apk 2> /dev/null
     echo ""
 }
 
@@ -137,6 +165,8 @@ dynamic_mapping
 dynamic_mapping_clash
 dynamic_mapping_nonglobal
 nested_lib
+indirect_jmp
 indirect_jmp_variant
+indirect_jmp_variant2
 high_depth
 indirect_jmp_high_depth
