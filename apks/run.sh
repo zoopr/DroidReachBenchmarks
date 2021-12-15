@@ -42,6 +42,20 @@ function dynamic_mapping {
     echo ""
 }
 
+function dynamic_mapping_complex {
+    echo "dynamic_mapping_complex"
+    echo "======================="
+    echo "Using Androguard:"
+    liana --reachable --find-path-to libnative.so@target_fun ./DynamicMappingComplex.apk 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    liana --print-full-icfg-path --reachable --find-path-to libnative.so@target_fun ./DynamicMappingComplex.apk 2> /dev/null
+    echo ""
+    echo "Using FlowDroid:"
+    liana --use-flowdroid --reachable --find-path-to libnative.so@target_fun ./DynamicMappingComplex.apk 2> /dev/null
+    echo ""
+}
+
 function dynamic_mapping_clash {
     echo "dynamic_mapping_clash"
     echo "====================="
