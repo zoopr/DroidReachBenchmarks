@@ -168,6 +168,20 @@ function indirect_jmp_high_depth {
     echo ""
 }
 
+function indirect_jmp_high_depth_variant {
+    echo "indirect_jmp_high_depth_variant"
+    echo "==============================="
+    echo "Using Androguard:"
+    liana --angr-max-calldepth 10 --reachable --find-path-to libnative.so@target_fun ./IndirectJmpHighDepthVariant.apk 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    liana --angr-max-calldepth 10 --print-full-icfg-path --reachable --find-path-to libnative.so@target_fun ./IndirectJmpHighDepthVariant.apk 2> /dev/null
+    echo ""
+    echo "Using FlowDroid:"
+    liana --angr-max-calldepth 10 --use-flowdroid --reachable --find-path-to libnative.so@target_fun ./IndirectJmpHighDepthVariant.apk 2> /dev/null
+    echo ""
+}
+
 if [ "$1" != "" ]; then
     $1
     exit 0
@@ -184,3 +198,4 @@ indirect_jmp_variant
 indirect_jmp_variant2
 high_depth
 indirect_jmp_high_depth
+indirect_jmp_high_depth_variant
