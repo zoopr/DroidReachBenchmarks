@@ -2,7 +2,7 @@
 
 Benchmark apps that highlights reachability analysis challenges in the native world of Android applications.
 
-The compiled applications are stored under the `apk` subdirectory.
+The compiled applications are stored under the `apks` subdirectory.
 
 ### Benchmarks
 
