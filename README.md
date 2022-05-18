@@ -30,4 +30,4 @@ The compiled applications are stored under the `apks` subdirectory.
 
 (4): It is possible to increase the calldepth, but there is a trade-off between running time/memory usage and desired calldepth.
 
-n/a: not applicable, e.g., Ghidra is not involved in the resolution JNI mapping.
+n/a: not applicable, e.g., Ghidra is not involved in the resolution of JNI mapping. 
