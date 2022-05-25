@@ -24,9 +24,9 @@ The compiled applications are stored under the `apks` subdirectory.
 
 (1): Slow, uses symbolic execution.
 
-(2): It is possible to modify ArgusSaf so that it supports multiple libraries
+(2): For the coarse-grained evaluation, we developed a variant of ArgusSaf that can reason on nested libraries
 
-(3): Ghidra can be enhanced to deal with multiple libraries
+(3): For the coarse-grained evaluation, Ghidra was enhanced to deal with nested libraries
 
 (4): It is possible to increase the calldepth, but there is a trade-off between running time/memory usage and desired calldepth.
 
