@@ -16,11 +16,11 @@ The compiled applications are stored under the `apks` subdirectory.
 | 5  | DynamicMappingComplex       | JNI Method bound to a Java native method using RegisterNatives API (complex code)        | &#9744;     | n/a         | &#9746;     |
 | 6  | NestedLib                   | JNI Method calls another linked library                                                  | &#9744; (2) | &#9744; (3) | &#9746;     |
 | 7  | HighDepth                   | The target function is called with an high calldepth                                     | &#9744; (4) | &#9746;     | &#9746;     |
-| 8  | IndirectJmp                 | The target function is called after an indirect jmp (C++ virtual call)                   | &#9746;     | &#9744;     | &#9746;     |
-| 9  | IndirectJmpVariant          | The target function is called after an indirect jmp (C++ virtual call)                   | &#9746;     | &#9744;     | &#9746;     |
-| 10 | IndirectJmpVariant2         | The target function is called after an indirect jmp (function pointer)                   | &#9746;     | &#9744;     | &#9746;     |
-| 11 | IndirectJmpHighDepth        | The target function is called at high calldepth after an indirect jmp (at small depth)   | &#9744; (4) | &#9744;     | &#9746;     |
-| 12 | IndirectJmpHighDepthVariant | The target function is called at high calldepth after an indirect jmp (at high depth)    | &#9744; (4) | &#9744;     | &#9744; (4) |
+| 8  | IndirectJmp                 | The target function is called after an indirect call (C++ virtual call)                   | &#9746;     | &#9744;     | &#9746;     |
+| 9  | IndirectJmpVariant          | The target function is called after an indirect call (C++ virtual call)                   | &#9746;     | &#9744;     | &#9746;     |
+| 10 | IndirectJmpVariant2         | The target function is called after an indirect call (function pointer)                   | &#9746;     | &#9744;     | &#9746;     |
+| 11 | IndirectJmpHighDepth        | The target function is called at high calldepth after an indirect call (at small depth)   | &#9744; (4) | &#9744;     | &#9746;     |
+| 12 | IndirectJmpHighDepthVariant | The target function is called at high calldepth after an indirect call (at high depth)    | &#9744; (4) | &#9744;     | &#9744; (4) |
 
 (1): Slow, uses symbolic execution.
 
