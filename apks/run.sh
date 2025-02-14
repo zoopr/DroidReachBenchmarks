@@ -182,6 +182,57 @@ function indirect_jmp_high_depth_variant {
     echo ""
 }
 
+function consumer_producer_own_method {
+    echo "CP_DerivedVTable"
+    echo "======================="
+    echo "Using Androguard:"
+    dreach --reachable --find-path-to libnative.so@target_fun ./CP_DerivedVTable 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    dreach --print-full-icfg-path --reachable --find-path-to  libnative.so@target_fun ./CP_DerivedVTable 2> /dev/null
+    echo ""
+    echo ""
+    echo "Using FlowDroid:"
+    dreach --use-flowdroid --reachable --find-path-to  libnative.so@target_fun ./CP_DerivedVTable 2> /dev/null
+    echo ""
+    echo ""
+}
+
+function consumer_producer_parent_method {
+    echo "CP_DerivedVTable"
+    echo "======================="
+    echo "Using Androguard:"
+    dreach --reachable --find-path-to libnative.so@target_fun ./CP_AncestorVTable 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    dreach --print-full-icfg-path --reachable --find-path-to  libnative.so@target_fun ./CP_AncestorVTable 2> /dev/null
+    echo ""
+    echo ""
+    echo "Using FlowDroid:"
+    dreach --use-flowdroid --reachable --find-path-to  libnative.so@target_fun ./CP_AncestorVTable 2> /dev/null
+    echo ""
+    echo ""
+}
+
+function consumer_producer_member_method {
+    echo "CP_DerivedVTable"
+    echo "======================="
+    echo "Using Androguard:"
+    dreach --reachable --find-path-to libnative.so@target_fun ./CP_MemberVTable 2> /dev/null
+    echo ""
+    echo "Full iCFG Path:"
+    dreach --print-full-icfg-path --reachable --find-path-to  libnative.so@target_fun ./CP_MemberVTable 2> /dev/null
+    echo ""
+    echo ""
+    echo "Using FlowDroid:"
+    dreach --use-flowdroid --reachable --find-path-to  libnative.so@target_fun ./CP_MemberVTable 2> /dev/null
+    echo ""
+    echo ""
+}
+
+
+
+
 if [ "$1" != "" ]; then
     $1
     exit 0
@@ -199,3 +250,6 @@ indirect_jmp_variant2
 high_depth
 indirect_jmp_high_depth
 indirect_jmp_high_depth_variant
+consumer_producer_own_method
+consumer_producer_parent_method
+consumer_producer_member_method
