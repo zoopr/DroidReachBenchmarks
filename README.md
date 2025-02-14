@@ -21,6 +21,11 @@ The compiled applications are stored under the `apks` subdirectory.
 | 10 | IndirectJmpVariant2         | The target function is called after an indirect call (function pointer)                   | &#9746;     | &#9744;     | &#9746;     |
 | 11 | IndirectJmpHighDepth        | The target function is called at a high calldepth after an indirect call (at small depth)   | &#9744; (4) | &#9744;     | &#9746;     |
 | 12 | IndirectJmpHighDepthVariant | The target function is called at a high calldepth after an indirect call (at high depth)    | &#9744; (4) | &#9744;     | &#9744; (4) |
+| 13 | CP_DerivedVTable            | Producer-Consumer pattern: the C++ virtual call originates from the class' own methods      | &#9744;  | &#9744;     | &#9746;     |
+| 14 | CP_AncestorVTable           | Producer-Consumer pattern: the C++ virtual call originates from an inherited (but not overridden) method  | &#9744;  | &#9744;     | &#9746;     |
+| 15 | CP_MemberVTable             | Producer-Consumer pattern: the C++ virtual call originates from an internal parameter's virtual method    | &#9744;  | &#9744;     | &#9744; (5)     |
+
+
 
 (1): Slow, uses symbolic execution.
 
@@ -29,5 +34,7 @@ The compiled applications are stored under the `apks` subdirectory.
 (3): For the coarse-grained evaluation, Ghidra was enhanced to deal with nested libraries
 
 (4): It is possible to increase the calldepth, but there is a trade-off between running time/memory usage and desired calldepth.
+
+(5): This pattern can be detected, but not automatically integrated into the resulting graph without further dynamic analysis.  
 
 n/a: not applicable, e.g., Ghidra is not involved in the resolution of JNI mapping. 
