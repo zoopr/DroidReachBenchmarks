@@ -199,7 +199,7 @@ function consumer_producer_own_method {
 }
 
 function consumer_producer_parent_method {
-    echo "CP_DerivedVTable"
+    echo "CP_AncestorVTable"
     echo "======================="
     echo "Using Androguard:"
     dreach --reachable --find-path-to libnative.so@target_fun ./CP_AncestorVTable 2> /dev/null
@@ -215,7 +215,7 @@ function consumer_producer_parent_method {
 }
 
 function consumer_producer_member_method {
-    echo "CP_DerivedVTable"
+    echo "CP_MemberVTable"
     echo "======================="
     echo "Using Androguard:"
     dreach --reachable --find-path-to libnative.so@target_fun ./CP_MemberVTable 2> /dev/null
